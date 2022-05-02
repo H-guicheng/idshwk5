@@ -61,8 +61,8 @@ def cal_data(s):
     #print(d)
     return d
     
-data=np.loadtxt('train.txt',delimiter=',',dtype=np.str) 
-name=data[:, 0] 
+data=np.loadtxt('train.txt',delimiter=',',dtype=str) 
+name=data[:,0] 
 label=data[:,-1]
 
 df=np.zeros((len(name),6))
@@ -91,8 +91,8 @@ linear_model.fit(X, Y)
 
 #测试
 
-testdata=np.loadtxt('test.txt',delimiter=',',dtype=np.str)
-testname=testdata[:, 0]
+testdata=np.loadtxt('test.txt',delimiter=',',dtype=str)
+testname=testdata
 testdf=np.zeros((len(testname),6))
 
 for i in range(len(testname)):
