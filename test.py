@@ -93,16 +93,22 @@ linear_model.fit(X, Y)
 
 testdata=np.loadtxt('test.txt',delimiter=',',dtype=str)
 testname=testdata
-testdf=np.zeros((len(testname),6))
+if testname.shape:
+    lenth=len(testname)
+else:
+    lenth=1
+    testname=[str(testname)]
+    
+testdf=np.zeros((lenth,6))
 
-for i in range(len(testname)):
+for i in range(lenth):
     testdf[i]=cal_data(testname[i])
 
 #result=linear_model.predict(testdf[0:900,0:4])
 result=clf.predict(testdf[:,0:5])
 
 f=open('result.txt','w')
-for i in range(len(result)):
+for i in range(lenth):
     f.write(testname[i]+',')
     if(result[i]==0):
         f.write('notdga\n')
